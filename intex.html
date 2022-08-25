@@ -5,9 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VueJS Tutorial</title>
+    <link rel="stylesheet" href="./style.css"></link>
     <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
 <body>
+    <div id="vue-app">
+        <h1>{{ greet('afternoon') }}</h1>
+        <p>Name: {{ name }}</p>
+        <p>Job: {{ job }}</p>
+        <!-- v-bind: or just : -->
+        <a v-bind:href="website">Github</a>
+        <input type="text" :value="name">
+        <p v-html="websiteTag"></p>
+
+        <h1>EVENTS</h1>
+        <p>My Age is {{ age }}</p>
+        <!-- v-on: or @ for triggering methods on events -->
+        <button v-on:click="addAge(1)">Add a Year</button>
+        <button v-on:click="subtractAge(1)">Subtract a Year</button>
+        <button v-on:dblclick="addAge(10)">Add 10 Years</button>
+        <button @dblclick="subtractAge(10)">Subtract 10 Years</button>
+        <div id="canvas" @mousemove="updateXY">{{ x }},{{ y }}</div>
+
+        <h2>EVENT MODIFIERS</h2>
+        
+    </div>
+
     <script src="./app.js"></script>
 </body>
 </html>
