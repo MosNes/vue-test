@@ -7,7 +7,11 @@ new Vue({
         websiteTag: '<a href="https://github.com/Mosnes">GitHub from v-html</a>',
         age: 34,
         x: 0,
-        y: 0
+        y: 0,
+        name2: '',
+        age2: '',
+        a: 0,
+        b: 0,
     },
     methods: {
         greet: function(timeOfDay){
@@ -32,6 +36,15 @@ new Vue({
         },
         logAge: function() {
             console.log('You entered your age');
+        },
+       
+    },
+    computed: {
+        addToA: function() {
+            return this.a + this.age;
+        },
+        addToB: function() {
+            return this.b + this.age;
         }
     }
     });
