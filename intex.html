@@ -28,7 +28,16 @@
         <div id="canvas" @mousemove="updateXY">{{ x }},{{ y }}</div>
 
         <h2>EVENT MODIFIERS</h2>
-        
+        <button v-on:click.once="addAge(1)">Add a Year Once</button>
+        <a v-on:click.prevent="click" href="https://github.com/Mosnes">Click Me!</a>
+
+        <h2>KEYBOARD EVENTS</h2>
+        <label>Name:</label>
+        <input type="text" v-on:keyup.enter="logName" />
+        <label>Age:</label>
+        <!-- chain modifiers to trigger events on key combinations like alt+enter -->
+        <input type="text" v-on:keyup.alt.enter="logAge" />
+
     </div>
 
     <script src="./app.js"></script>
