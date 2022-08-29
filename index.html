@@ -103,15 +103,17 @@
 
         <h3>Punching Bag App</h3>
         <!-- bag image -->
-        <div id="bag"></div>
+        <div id="bag" :class="{ burst: ended }"></div>
         <!-- bag health bar -->
         <div id="bag-health">
-            <div></div>
+            <!-- as health value decreases, width of red health bar decreases -->
+            <div :style="{ width: health + '%'}"></div>
         </div>
         <!-- app control buttons -->
         <div id="controls">
-            <button>Punch</button>
-            <button>Restart</button>
+            <!-- only show punch button when ended is false -->
+            <button @click="punch" v-show="!ended">Punch</button>
+            <button @click="restart">Restart</button>
         </div>
 
 

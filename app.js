@@ -21,7 +21,9 @@ new Vue({
             { name: 'Yangbo', age: 40 },
             { name: 'Fleb', age: 44 },
             { name: 'Quinchie', age: 23 }
-        ]
+        ],
+        health: 100,
+        ended: false,
     },
     methods: {
         greet: function(timeOfDay){
@@ -47,6 +49,16 @@ new Vue({
         logAge: function() {
             console.log('You entered your age');
         },
+        punch: function() {
+            this.health -= 10;
+            if (this.health <= 0){
+                this.ended = true;
+            }
+        },
+        restart: function() {
+            this.health = 100;
+            this.ended = false;
+        }
        
     },
     computed: {
