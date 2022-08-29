@@ -58,6 +58,63 @@
         <p>Age + A = {{ addToA }}</p>
         <p>Age + B = {{ addToB }}</p>
 
+        <h2>DYNAMIC CSS</h2>
+        <h3>Example 1</h3>
+        <!-- <div @click="available = !available" v-bind:class="{available: available}">
+            <span>Jimbo</span>
+        </div> -->
+        <h3>Example 2</h3>
+        <button @click="nearby = !nearby">Toggle Nearby</button>
+        <button @click="available = !available">Toggle Available</button>
+        <div v-bind:class="compClasses">
+            <span>Grobo Flimp</span>
+        </div>
+
+        <h2>V-IF and V-SHOW</h2>
+        <button @click="error = !error">Toggle Error</button>
+        <button @click="success = !success">Toggle Success</button>
+        <!-- v-if toggles whether the element exists on the DOM -->
+        <p v-if="error">This will display when error is true</p>
+        <p v-else-if="success">This will display when success is true and error is false</p>
+        <!-- v-show toggles display: none -->
+        <p v-show="error">There has been an error</p>
+        <p v-show="success">Woo success!</p>
+        
+        <h2>LOOPING WITH V-FOR</h2>
+        <h3>Characters</h3>
+        <ul>
+            <li v-for="character in characters">{{ character }}</li>
+        </ul>
+        <h3>Dudes</h3>
+        <ul>
+            <li v-for="(dude, index) in dudes">{{ index }} Name: {{ dude.name }} - Age: {{ dude.age }}</li>
+        </ul>
+
+        <h3>Dudes with Template</h3>
+        <template v-for="(dude, index) in dudes">
+            <h4>{{index}} . {{dude.name}}</h4>
+            <p>{{dude.name}} is {{dude.age}} years old.</p>
+        </template>
+
+        <h3>Looping thru keys in objects</h3>
+        <template v-for="dude in dudes">
+            <div v-for="(val, key) in dude">{{key}} : {{val}}</div>
+        </template>
+
+        <h3>Punching Bag App</h3>
+        <!-- bag image -->
+        <div id="bag"></div>
+        <!-- bag health bar -->
+        <div id="bag-health">
+            <div></div>
+        </div>
+        <!-- app control buttons -->
+        <div id="controls">
+            <button>Punch</button>
+            <button>Restart</button>
+        </div>
+
+
     </div>
 
     <script src="./app.js"></script>

@@ -12,6 +12,16 @@ new Vue({
         age2: '',
         a: 0,
         b: 0,
+        available: false,
+        nearby: false,
+        error: false,
+        success: false,
+        characters: ['Mario', 'Luigi', 'Yoshi', 'Bowser'],
+        dudes: [
+            { name: 'Yangbo', age: 40 },
+            { name: 'Fleb', age: 44 },
+            { name: 'Quinchie', age: 23 }
+        ]
     },
     methods: {
         greet: function(timeOfDay){
@@ -45,6 +55,12 @@ new Vue({
         },
         addToB: function() {
             return this.b + this.age;
+        },
+        compClasses: function() {
+            return {
+                available: this.available,
+                nearby: this.nearby
+            }
         }
     }
     });
