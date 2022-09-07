@@ -1,3 +1,17 @@
+Vue.component('greeting', {
+    template: `<p>Re-usable Component for {{ name }}. <button v-on:click="changeName">Change Name</button></p>`,
+    data: function(){
+        return {
+            name: 'Yoshimitsu'
+        }
+    },
+    methods: {
+        changeName: function() {
+            this.name = 'Morrobonk'
+        }
+    }
+});
+
 new Vue({
     el: '#vue-app',
     data: {
@@ -24,6 +38,7 @@ new Vue({
         ],
         health: 100,
         ended: false,
+        refOutput: 'Test'
     },
     methods: {
         greet: function(timeOfDay){
@@ -58,6 +73,11 @@ new Vue({
         restart: function() {
             this.health = 100;
             this.ended = false;
+        },
+        //read refs with $refs
+        readRefs: function() {
+            console.log(this.$refs.testRef.innerText);
+            this.refOutput = this.$refs.input.value;
         }
        
     },

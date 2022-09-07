@@ -116,6 +116,16 @@
             <button @click="restart">Restart</button>
         </div>
 
+        <h3>Components</h3>
+        <greeting></greeting>
+        <greeting></greeting>
+
+
+        <h3>REFS</h3>
+        <input type="text" ref="input"></input>
+        <button @click="readRefs">Submit</button>
+        <p>Your message here: {{ refOutput }}</p>
+        <div ref="testRef">Hello</div>
 
     </div>
 
